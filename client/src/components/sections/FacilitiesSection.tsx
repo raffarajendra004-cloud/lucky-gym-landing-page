@@ -3,17 +3,14 @@ import { motion } from "framer-motion";
 const facilities = [
   {
     title: "Mesin Gym Modern",
-    description: "Equipment terkini dari brand internasional",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663450912103/F75UxNeyShVVQ8k2yXoHiB/lucky-gym-facilities-1-HbwF5qzDgfAtMfabyuqPEH.webp",
   },
   {
-    title: "Area Cardio Luas",
-    description: "Treadmill, elliptical, dan bike berkualitas premium",
+    title: "Area Cardio",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663450912103/F75UxNeyShVVQ8k2yXoHiB/lucky-gym-facilities-2-CZ6FzbPhPhizbWSeTZ5aqo.webp",
   },
   {
     title: "Pilates Studio",
-    description: "Studio khusus dengan equipment pilates profesional",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663450912103/F75UxNeyShVVQ8k2yXoHiB/lucky-gym-facilities-3-enbGJLKL3tt7QGiqg9pwvQ.webp",
   },
 ];
@@ -24,41 +21,41 @@ export default function FacilitiesSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6 },
+      y: 0,
+      transition: { duration: 0.5 },
     },
   };
 
   return (
-    <section id="facilities" className="py-20 bg-card/50">
+    <section id="facilities" className="py-16 bg-card">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="heading-lg mb-4">Fasilitas Premium</h2>
+          <h2 className="heading-lg mb-3">Fasilitas Premium</h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-            Kami menyediakan fasilitas lengkap dengan standar gym internasional untuk mendukung perjalanan fitness Anda
+            Lengkap dengan standar gym internasional
           </p>
         </motion.div>
 
         {/* Facilities Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -68,52 +65,16 @@ export default function FacilitiesSection() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer"
+              className="group relative overflow-hidden rounded-lg h-72 cursor-pointer"
             >
-              {/* Image */}
               <img
                 src={facility.image}
                 alt={facility.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover smooth-transition group-hover:scale-105"
               />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Content */}
-              <motion.div
-                className="absolute inset-0 flex flex-col justify-end p-6 text-white"
-                initial={{ y: 20, opacity: 0 }}
-                whileHover={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="heading-md mb-2">{facility.title}</h3>
-                <p className="body-sm text-gray-200">{facility.description}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Additional Features */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {[
-            "Free Weights Area",
-            "Locker & Shower",
-            "WiFi Gratis",
-            "Parking Luas",
-          ].map((feature, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-xl bg-background border border-border text-center hover:border-primary transition-colors"
-            >
-              <p className="font-semibold text-foreground">{feature}</p>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 smooth-transition flex items-end p-4">
+                <h3 className="heading-md text-white">{facility.title}</h3>
+              </div>
             </motion.div>
           ))}
         </motion.div>

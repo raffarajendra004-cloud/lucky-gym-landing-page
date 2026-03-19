@@ -4,33 +4,33 @@ import { Dumbbell, Sparkles, Wind, Users, Star, Zap } from "lucide-react";
 const features = [
   {
     icon: Dumbbell,
-    title: "Alat Lengkap & Terbaru",
-    description: "Equipment modern dari brand ternama untuk semua jenis latihan",
+    title: "Alat Lengkap",
+    description: "Equipment modern dari brand ternama",
   },
   {
     icon: Sparkles,
-    title: "Tempat Bersih & Nyaman",
-    description: "Fasilitas premium dengan standar kebersihan internasional",
+    title: "Tempat Bersih",
+    description: "Fasilitas premium dengan standar internasional",
   },
   {
     icon: Wind,
-    title: "Full AC (Tidak Sumpek)",
-    description: "Sistem pendingin optimal untuk kenyamanan maksimal",
+    title: "Full AC",
+    description: "Sistem pendingin optimal untuk kenyamanan",
   },
   {
     icon: Users,
-    title: "Trainer Ramah & Profesional",
-    description: "Tim berpengalaman siap membimbing perjalanan fitness Anda",
+    title: "Trainer Profesional",
+    description: "Tim berpengalaman siap membimbing Anda",
   },
   {
     icon: Star,
-    title: "Rating 5.0 ⭐",
-    description: "Dipercaya oleh ribuan member puas di Cilegon",
+    title: "Rating 5.0",
+    description: "Dipercaya ribuan member puas",
   },
   {
     icon: Zap,
     title: "Performa Terbaik",
-    description: "Hasil nyata dengan program terstruktur dan support penuh",
+    description: "Hasil nyata dengan program terstruktur",
   },
 ];
 
@@ -40,41 +40,41 @@ export default function WhyUsSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.5 },
     },
   };
 
   return (
-    <section id="why-us" className="py-20 bg-background">
+    <section id="why-us" className="py-16 bg-white">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="heading-lg mb-4">Kenapa Pilih Lucky Gym?</h2>
+          <h2 className="heading-lg mb-3">Kenapa Pilih Lucky Gym?</h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-            Kami berkomitmen memberikan pengalaman fitness terbaik dengan fasilitas premium dan layanan profesional
+            Kami berkomitmen memberikan pengalaman fitness terbaik dengan fasilitas premium
           </p>
         </motion.div>
 
         {/* Features Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -86,54 +86,16 @@ export default function WhyUsSection() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 glow-yellow-hover"
+                className="card-clean group"
               >
-                {/* Icon */}
-                <div className="mb-4 inline-block p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="mb-3 inline-block p-2 bg-primary/10 rounded group-hover:bg-primary/20 smooth-transition">
+                  <Icon className="w-5 h-5 text-primary" />
                 </div>
-
-                {/* Title */}
-                <h3 className="heading-md mb-2 text-foreground">{feature.title}</h3>
-
-                {/* Description */}
+                <h3 className="heading-md mb-2">{feature.title}</h3>
                 <p className="body-sm text-muted-foreground">{feature.description}</p>
-
-                {/* Hover Effect */}
-                <motion.div
-                  className="mt-4 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.div>
             );
           })}
-        </motion.div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-        >
-          {[
-            { number: "5000+", label: "Member Aktif" },
-            { number: "50+", label: "Equipment Modern" },
-            { number: "20+", label: "Trainer Profesional" },
-            { number: "5.0", label: "Rating Google" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-xl bg-card border border-border"
-            >
-              <div className="heading-lg text-primary mb-2">{stat.number}</div>
-              <div className="body-sm text-muted-foreground">{stat.label}</div>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

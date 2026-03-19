@@ -10,12 +10,10 @@ export default function Navbar({ isScrolled }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
     { label: "Fasilitas", href: "#facilities" },
     { label: "Program", href: "#programs" },
     { label: "Testimoni", href: "#testimonials" },
     { label: "Lokasi", href: "#location" },
-    { label: "Kontak", href: "#contact" },
   ];
 
   const handleScroll = (href: string) => {
@@ -30,32 +28,33 @@ export default function Navbar({ isScrolled }: NavbarProps) {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-sm border-b border-border shadow-sm"
+          : "bg-white"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-16">
         {/* Logo */}
         <motion.div
           className="flex items-center gap-2"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">LG</span>
+          <div className="w-9 h-9 bg-primary rounded flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-sm">LG</span>
           </div>
-          <span className="font-bold text-lg hidden sm:inline">Lucky Gym</span>
+          <span className="font-bold text-base hidden sm:inline">Lucky Gym</span>
         </motion.div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <motion.button
               key={item.label}
               onClick={() => handleScroll(item.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary smooth-transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -67,7 +66,7 @@ export default function Navbar({ isScrolled }: NavbarProps) {
         {/* CTA Button */}
         <motion.button
           onClick={() => handleScroll("#contact")}
-          className="hidden md:block px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/40 transition-all duration-300"
+          className="hidden md:block px-5 py-2 bg-primary text-primary-foreground font-bold rounded smooth-transition hover:shadow-md active:scale-95"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -80,34 +79,35 @@ export default function Navbar({ isScrolled }: NavbarProps) {
           className="md:hidden p-2"
           whileTap={{ scale: 0.95 }}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </motion.button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div
-          className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
-          initial={{ opacity: 0, y: -20 }}
+          className="md:hidden bg-white border-b border-border"
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
         >
-          <div className="container py-4 flex flex-col gap-4">
+          <div className="container py-3 flex flex-col gap-2">
             {navItems.map((item) => (
               <motion.button
                 key={item.label}
                 onClick={() => handleScroll(item.href)}
-                className="text-left text-foreground/80 hover:text-primary transition-colors py-2"
-                whileHover={{ x: 8 }}
+                className="text-left text-foreground hover:text-primary smooth-transition py-2 text-sm"
+                whileHover={{ x: 4 }}
               >
                 {item.label}
               </motion.button>
             ))}
             <motion.button
               onClick={() => handleScroll("#contact")}
-              className="w-full px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/40 transition-all duration-300 mt-2"
+              className="w-full px-5 py-2 bg-primary text-primary-foreground font-bold rounded smooth-transition mt-2"
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileTap={{ scale: 0.95 }}
             >
               Join Now
             </motion.button>

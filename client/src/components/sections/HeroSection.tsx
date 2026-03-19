@@ -11,6 +11,26 @@ export default function HeroSection() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
     <section
       id="home"
@@ -23,36 +43,38 @@ export default function HeroSection() {
           alt="Lucky Gym Interior"
           className="w-full h-full object-cover"
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container flex flex-col items-center justify-center text-center gap-8 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4"
+      <motion.div
+        className="relative z-10 container flex flex-col items-center justify-center text-center gap-6 py-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          variants={itemVariants}
+          className="heading-display text-white"
         >
-          <h1 className="heading-display text-white">
-            Train Like a Pro at Lucky Gym
-          </h1>
-          <p className="body-lg text-gray-200 max-w-2xl mx-auto">
-            Gym paling proper di Cilegon dengan alat lengkap, nyaman, dan profesional. Transformasi tubuh Anda dimulai dari sini.
-          </p>
-        </motion.div>
+          Train Like a Pro at Lucky Gym
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          className="body-lg text-white/90 max-w-2xl mx-auto"
+        >
+          Gym paling proper di Cilegon dengan alat lengkap, nyaman, dan profesional
+        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-3 justify-center pt-2"
         >
           <motion.button
             onClick={() => handleScroll("#contact")}
-            className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg hover:shadow-lg hover:shadow-primary/40 transition-all duration-300 animate-pulse-glow"
+            className="btn-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -60,14 +82,14 @@ export default function HeroSection() {
           </motion.button>
           <motion.button
             onClick={() => handleScroll("#facilities")}
-            className="px-8 py-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/10 transition-all duration-300"
+            className="btn-secondary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Lihat Fasilitas
           </motion.button>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div
@@ -75,7 +97,7 @@ export default function HeroSection() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <ChevronDown size={32} className="text-primary" />
+        <ChevronDown size={28} className="text-primary" />
       </motion.div>
     </section>
   );

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ContactSection() {
@@ -8,15 +7,12 @@ export default function ContactSection() {
     name: "",
     phone: "",
     package: "gym-reguler",
-    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -26,51 +22,39 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
       toast.success("Terima kasih! Kami akan menghubungi Anda segera.");
-      setFormData({ name: "", phone: "", package: "gym-reguler", message: "" });
+      setFormData({ name: "", phone: "", package: "gym-reguler" });
       setIsSubmitting(false);
-    }, 1000);
-  };
-
-  const handleWhatsApp = () => {
-    const message = `Halo Lucky Gym, saya ingin mendaftar membership. Nama: ${formData.name || "Nama saya"}, No HP: ${formData.phone || "Nomor saya"}`;
-    window.open(
-      `https://wa.me/6285710145550?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+    }, 800);
   };
 
   return (
-    <section id="contact" className="py-20 bg-card/50">
+    <section id="contact" className="py-16 bg-card">
       <div className="container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="heading-lg mb-4">Daftar Sekarang</h2>
-          <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-            Jangan tunggu lagi! Mulai transformasi fitness Anda hari ini dengan Lucky Gym
-          </p>
+          <h2 className="heading-lg mb-3">Daftar Sekarang</h2>
+          <p className="body-lg text-muted-foreground">Mulai transformasi fitness Anda hari ini</p>
         </motion.div>
 
         {/* Form & Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-4"
           >
-            {/* Name */}
             <div>
               <label className="block text-sm font-semibold mb-2">Nama</label>
               <input
@@ -78,13 +62,12 @@ export default function ContactSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Masukkan nama Anda"
+                placeholder="Nama Anda"
                 required
-                className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                className="w-full px-4 py-2.5 border border-border rounded smooth-transition focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
-            {/* Phone */}
             <div>
               <label className="block text-sm font-semibold mb-2">No HP</label>
               <input
@@ -94,20 +77,17 @@ export default function ContactSection() {
                 onChange={handleChange}
                 placeholder="0857-1014-5550"
                 required
-                className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                className="w-full px-4 py-2.5 border border-border rounded smooth-transition focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
-            {/* Package */}
             <div>
-              <label className="block text-sm font-semibold mb-2">
-                Pilih Paket
-              </label>
+              <label className="block text-sm font-semibold mb-2">Paket</label>
               <select
                 name="package"
                 value={formData.package}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                className="w-full px-4 py-2.5 border border-border rounded smooth-transition focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="gym-reguler">Gym Reguler</option>
                 <option value="personal-trainer">Personal Trainer</option>
@@ -115,26 +95,12 @@ export default function ContactSection() {
               </select>
             </div>
 
-            {/* Message */}
-            <div>
-              <label className="block text-sm font-semibold mb-2">Pesan</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tulis pesan atau pertanyaan Anda..."
-                rows={4}
-                className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
-              />
-            </div>
-
-            {/* Submit Button */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-3 bg-primary text-primary-foreground font-bold rounded-lg hover:shadow-lg hover:shadow-primary/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Mengirim..." : "Daftar Sekarang"}
             </motion.button>
@@ -144,75 +110,48 @@ export default function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-4"
           >
-            {/* Contact Methods */}
-            <div className="space-y-6">
-              <h3 className="heading-md">Hubungi Kami Langsung</h3>
+            {/* WhatsApp */}
+            <motion.a
+              href="https://wa.me/6285710145550"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              className="block p-4 rounded border border-border hover:border-primary hover:bg-primary/5 smooth-transition"
+            >
+              <p className="font-bold mb-1">Chat WhatsApp</p>
+              <p className="body-sm text-muted-foreground">0857-1014-5550</p>
+            </motion.a>
 
-              {/* WhatsApp */}
-              <motion.button
-                onClick={handleWhatsApp}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full flex items-center gap-4 p-6 rounded-xl bg-background border border-border hover:border-primary hover:bg-primary/5 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <MessageCircle className="w-8 h-8 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold">Chat via WhatsApp</p>
-                  <p className="text-sm text-muted-foreground">
-                    0857-1014-5550
-                  </p>
-                </div>
-              </motion.button>
+            {/* Phone */}
+            <motion.a
+              href="tel:+6285710145550"
+              whileHover={{ scale: 1.02 }}
+              className="block p-4 rounded border border-border hover:border-primary hover:bg-primary/5 smooth-transition"
+            >
+              <p className="font-bold mb-1">Telepon</p>
+              <p className="body-sm text-muted-foreground">0857-1014-5550</p>
+            </motion.a>
 
-              {/* Phone */}
-              <a
-                href="tel:+6285710145550"
-                className="w-full flex items-center gap-4 p-6 rounded-xl bg-background border border-border hover:border-primary hover:bg-primary/5 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold">📞</span>
-                  </div>
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold">Telepon</p>
-                  <p className="text-sm text-muted-foreground">
-                    0857-1014-5550
-                  </p>
-                </div>
-              </a>
-
-              {/* Instagram */}
-              <a
-                href="https://instagram.com/luckygym_id"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center gap-4 p-6 rounded-xl bg-background border border-border hover:border-primary hover:bg-primary/5 transition-all"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold">📱</span>
-                  </div>
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold">Instagram</p>
-                  <p className="text-sm text-muted-foreground">@luckygym_id</p>
-                </div>
-              </a>
-            </div>
+            {/* Instagram */}
+            <motion.a
+              href="https://instagram.com/luckygym_id"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              className="block p-4 rounded border border-border hover:border-primary hover:bg-primary/5 smooth-transition"
+            >
+              <p className="font-bold mb-1">Instagram</p>
+              <p className="body-sm text-muted-foreground">@luckygym_id</p>
+            </motion.a>
 
             {/* Info Box */}
-            <div className="p-6 rounded-xl bg-primary/10 border border-primary/20">
-              <p className="body-sm text-foreground">
-                <span className="font-bold">Slot Terbatas!</span> Daftar sekarang
-                dan dapatkan konsultasi gratis dengan trainer kami untuk
-                merancang program fitness yang sempurna untuk Anda.
+            <div className="p-4 rounded bg-primary/10 border border-primary/20">
+              <p className="body-sm">
+                <span className="font-bold">Slot Terbatas!</span> Daftar sekarang dan dapatkan konsultasi gratis dengan trainer kami.
               </p>
             </div>
           </motion.div>
