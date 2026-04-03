@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
 import FacilitiesSection from "@/components/sections/FacilitiesSection";
-import TrainersSection from "@/components/sections/TrainersSection";
+
 import BenefitsSection from "@/components/sections/BenefitsSection";
 import ProgramsSection from "@/components/sections/ProgramsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -51,7 +51,6 @@ export default function Home() {
         <HeroSection />
         <WhyUsSection />
         <FacilitiesSection />
-        <TrainersSection />
         <BenefitsSection />
         <ProgramsSection />
         <TestimonialsSection />
