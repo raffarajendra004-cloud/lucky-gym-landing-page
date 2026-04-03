@@ -40,7 +40,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMAGE}
-          alt="Lucky Gym Interior"
+          alt="GYM Interior"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -57,7 +57,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className="heading-display text-white"
         >
-          Train Like a Pro at Lucky Gym
+          Train Like a Pro at GYM
         </motion.h1>
 
         <motion.p

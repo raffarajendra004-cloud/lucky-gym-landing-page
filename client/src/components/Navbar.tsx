@@ -45,7 +45,7 @@ export default function Navbar({ isScrolled }: NavbarProps) {
           <div className="w-9 h-9 bg-primary rounded flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-sm">LG</span>
           </div>
-          <span className="font-bold text-base hidden sm:inline">Lucky Gym</span>
+          <span className="font-bold text-base hidden sm:inline">GYM</span>
         </motion.div>
 
         {/* Desktop Menu */}

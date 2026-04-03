@@ -65,7 +65,7 @@ export default function FAQSection() {
         >
           <h2 className="heading-lg mb-3">Pertanyaan Umum</h2>
           <p className="body-lg text-muted-foreground">
-            Temukan jawaban atas pertanyaan Anda tentang Lucky Gym
+            Temukan jawaban atas pertanyaan Anda tentang GYM
           </p>
         </motion.div>
 

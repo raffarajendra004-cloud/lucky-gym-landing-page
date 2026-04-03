@@ -79,7 +79,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                  LUCKY GYM
+                  GYM
                 </motion.div>
               </div>
             </motion.div>
@@ -94,7 +94,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
             exit={{ opacity: 0 }}
           >
             <p className="text-primary font-bold text-lg">Train Like a Pro</p>
-            <p className="text-white/60 text-sm mt-1">Cilegon's Premium Gym</p>
+            <p className="text-white/60 text-sm mt-1">Cilegon's Premium Fitness</p>
           </motion.div>
         </motion.div>
       )}

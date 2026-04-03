@@ -138,14 +138,14 @@ export default function ContactSection() {
 
             {/* Instagram */}
             <motion.a
-              href="https://instagram.com/luckygym_id"
+              href="https://instagram.com/gym_id"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               className="block p-4 rounded border border-border hover:border-primary hover:bg-primary/5 smooth-transition"
             >
               <p className="font-bold mb-1">Instagram</p>
-              <p className="body-sm text-muted-foreground">@luckygym_id</p>
+              <p className="body-sm text-muted-foreground">@gym_id</p>
             </motion.a>
 
             {/* Info Box */}

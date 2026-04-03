@@ -66,7 +66,7 @@ export default function WhyUsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="heading-lg mb-3">Kenapa Pilih Lucky Gym?</h2>
+          <h2 className="heading-lg mb-3">Kenapa Pilih GYM?</h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
             Kami berkomitmen memberikan pengalaman fitness terbaik dengan fasilitas premium
           </p>

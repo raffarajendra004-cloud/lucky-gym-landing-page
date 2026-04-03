@@ -65,7 +65,7 @@ export default function PaymentModal({ isOpen, onClose }: PaymentModalProps) {
     setTimeout(() => {
       setIsProcessing(false);
       setStep("success");
-      toast.success("Pembayaran berhasil! Selamat bergabung dengan Lucky Gym");
+      toast.success("Pembayaran berhasil! Selamat bergabung dengan GYM");
     }, 2000);
   };
 
@@ -273,7 +273,7 @@ export default function PaymentModal({ isOpen, onClose }: PaymentModalProps) {
                   </motion.div>
                   <h3 className="heading-md mb-2">Pembayaran Berhasil!</h3>
                   <p className="text-muted-foreground mb-6">
-                    Selamat bergabung dengan Lucky Gym. Kami akan menghubungi Anda segera.
+                    Selamat bergabung dengan GYM. Kami akan menghubungi Anda segera.
                   </p>
                   <button
                     onClick={handleClose}

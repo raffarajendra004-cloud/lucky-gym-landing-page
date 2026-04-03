@@ -6,7 +6,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com/luckygym_id", label: "Instagram" },
+    { icon: Instagram, href: "https://instagram.com/gym_id", label: "Instagram" },
     { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
@@ -26,7 +26,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xs">LG</span>
               </div>
-              <span className="font-bold">Lucky Gym</span>
+              <span className="font-bold">GYM</span>
             </div>
             <p className="body-sm text-muted-foreground">
               Gym premium di Cilegon untuk transformasi fitness Anda.
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul className="space-y-2 body-sm text-muted-foreground">
               <li>0857-1014-5550</li>
               <li>X3F3+3RP, Cilegon</li>
-              <li>@luckygym_id</li>
+              <li>@gym_id</li>
             </ul>
           </motion.div>
 
@@ -116,7 +116,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-center body-sm text-muted-foreground"
         >
-          <p>&copy; {currentYear} Lucky Gym Cilegon. All rights reserved.</p>
+          <p>&copy; {currentYear} GYM Cilegon. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>
